@@ -21,10 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ['@babel/preset-env', { targets: 'defaults' }],
-              ['@babel/preset-react', { runtime: 'automatic' }]
-            ],
+            configFile: './babel-web.config.js',
           },
         },
       },
