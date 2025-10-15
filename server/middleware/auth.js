@@ -1,0 +1,29 @@
+const jwt = require('jsonwebtoken');
+const { getUsers } = require('../models/User');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
+
+const authMiddleware = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    
+    if (!token) {
+      return res.status(401).json({ error: 'Access denied. No token provided.' });
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const users = await getUsers();
+    const user = users.find(u => u.id === decoded.userId);
+
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid token.' });
+    }
+
+    req.user = user;
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Invalid token.' });
+  }
+};
+
+module.exports = authMiddleware;
