@@ -1,0 +1,1 @@
+Place provided image in Sources/Resources/Assets.xcassets/za_icon.imageset/za_icon.png
