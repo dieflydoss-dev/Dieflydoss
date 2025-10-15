@@ -9,9 +9,10 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { BlurView } from '@react-native-community/blur';
+import { getLinearGradient, getIcon } from '../utils/PlatformUtils';
+
+const LinearGradient = getLinearGradient();
+const Icon = getIcon();
 
 import SportsDataService from '../services/SportsDataService';
 import { getAppService } from '../services/AppService';

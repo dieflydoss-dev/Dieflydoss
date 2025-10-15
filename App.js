@@ -9,8 +9,18 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/Ionicons';
+
+// Web-compatible imports
+let LinearGradient, Icon;
+if (Platform.OS === 'web') {
+  LinearGradient = require('react-native-web-linear-gradient').default;
+  Icon = ({ name, size, color, ...props }) => (
+    <View style={{ width: size, height: size, backgroundColor: color }} {...props} />
+  );
+} else {
+  LinearGradient = require('react-native-linear-gradient').default;
+  Icon = require('react-native-vector-icons/Ionicons').default;
+}
 
 // Import screens
 import HomeScreen from './src/screens/HomeScreen';
@@ -95,7 +105,11 @@ const App = () => {
           colors={['#667eea', '#764ba2']}
           style={styles.loadingGradient}
         >
-          <Icon name="american-football" size={60} color="white" />
+          {Platform.OS === 'web' ? (
+            <View style={styles.webIcon}>🏈</View>
+          ) : (
+            <Icon name="american-football" size={60} color="white" />
+          )}
         </LinearGradient>
       </SafeAreaView>
     );
@@ -103,11 +117,13 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+      {Platform.OS !== 'web' && (
+        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+      )}
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-          cardStyleInterpolator: ({ current, layouts }) => {
+          cardStyleInterpolator: Platform.OS === 'web' ? undefined : ({ current, layouts }) => {
             return {
               cardStyle: {
                 transform: [
@@ -140,6 +156,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  webIcon: {
+    fontSize: 60,
+    color: 'white',
   },
 });
 
