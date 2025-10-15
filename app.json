@@ -1,0 +1,62 @@
+{
+  "name": "VegasInsiderSportsApp",
+  "displayName": "Vegas Insider",
+  "expo": {
+    "name": "Vegas Insider Sports App",
+    "slug": "vegas-insider-sports-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#667eea"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vegasinsider.sportsapp",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses location to provide relevant sports betting information for your area.",
+        "NSUserNotificationUsageDescription": "This app sends notifications for game updates and betting alerts."
+      },
+      "associatedDomains": [
+        "applinks:vegasinsider.com"
+      ],
+      "entitlements": {
+        "com.apple.developer.pass-type-identifiers": [
+          "pass.com.vegasinsider.sportsbet"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#667eea"
+      },
+      "package": "com.vegasinsider.sportsapp",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.VIBRATE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#667eea"
+        }
+      ]
+    ]
+  }
+}
