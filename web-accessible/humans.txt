@@ -1,0 +1,21 @@
+/* TEAM */
+Developer: Vegas Insider Development Team
+Contact: developers@vegasinsider.com
+Twitter: @VegasInsiderApp
+Location: Las Vegas, Nevada, USA
+
+/* THANKS */
+React Native Community
+Apple Design Guidelines
+Google Web Fundamentals
+Netlify Platform
+Sports Data Providers
+
+/* SITE */
+Last update: 2023/10/15
+Language: English
+Doctype: HTML5
+IDE: Visual Studio Code
+Standards: HTML5, CSS3, ECMAScript 2023
+Components: React Native, iOS Design System
+Software: Webpack, Babel, Service Workers
