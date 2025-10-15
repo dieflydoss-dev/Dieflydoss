@@ -1,0 +1,75 @@
+name: VegasInsiderSports
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: 16.0
+packages:
+  CombineExt:
+    url: https://github.com/CombineCommunity/CombineExt.git
+    from: 1.8.1
+  Kingfisher:
+    url: https://github.com/onevcat/Kingfisher.git
+    from: 7.10.0
+  Lottie:
+    url: https://github.com/airbnb/lottie-ios.git
+    from: 4.5.0
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    from: 5.8.1
+  Starscream:
+    url: https://github.com/daltoniam/Starscream.git
+    from: 4.0.6
+  SwiftUIIntrospect:
+    url: https://github.com/siteline/SwiftUI-Introspect.git
+    from: 1.1.4
+settings:
+  base:
+    PRODUCT_BUNDLE_IDENTIFIER: com.example.vegasinsidersports
+    DEVELOPMENT_TEAM: ""
+    SWIFT_VERSION: 5.10
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 0.1.0
+    ENABLE_PREVIEWS: YES
+    CODE_SIGN_STYLE: Automatic
+    OTHER_SWIFT_FLAGS: "-warnings-as-errors"
+targets:
+  VegasInsiderSports:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+      - path: Configurations
+      - path: Entitlements
+    resources:
+      - path: Sources/Resources
+    settings:
+      base:
+        INFOPLIST_FILE: Configurations/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Entitlements/VegasInsiderSports.entitlements
+    dependencies:
+      - package: CombineExt
+      - package: Kingfisher
+      - package: Lottie
+      - package: Alamofire
+      - package: Starscream
+      - package: SwiftUIIntrospect
+    entitlements:
+      - path: Entitlements/VegasInsiderSports.entitlements
+  TeamPulseWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Widget/Sources
+    resources:
+      - path: Widget/Resources
+    settings:
+      base:
+        INFOPLIST_FILE: Configurations/Widget-Info.plist
+    dependencies:
+      - target: VegasInsiderSports
+    info:
+      path: Configurations/Widget-Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
+YAML
