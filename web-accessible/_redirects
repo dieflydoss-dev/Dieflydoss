@@ -1,0 +1,20 @@
+# Redirects for Vegas Insider Sports App
+
+# Main SPA redirect
+/*    /index.html   200
+
+# SEO-friendly redirects
+/features    /#features    302
+/technology  /#technology  302
+/download    /#download    302
+/contact     /#contact     302
+
+# Legacy redirects (if migrating from another domain)
+/app         /             301
+/home        /             301
+
+# API redirects (for future use)
+/api/*       https://api.vegasinsider.com/:splat  200
+
+# Force HTTPS
+http://vegas-insider-sports-app.netlify.app/*  https://vegas-insider-sports-app.netlify.app/:splat  301!

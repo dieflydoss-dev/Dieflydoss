@@ -1,0 +1,6 @@
+Contact: mailto:security@vegasinsider.com
+Expires: 2024-12-31T23:59:59.000Z
+Encryption: https://keys.openpgp.org/search?q=security@vegasinsider.com
+Preferred-Languages: en
+Canonical: https://vegas-insider-sports-app.netlify.app/.well-known/security.txt
+Policy: https://vegas-insider-sports-app.netlify.app/security-policy
